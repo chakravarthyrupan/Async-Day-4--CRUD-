@@ -19,45 +19,84 @@
   </head>
   <body>
     <div class="app">
-        <h3 class="text-center mb-3 fw-bolder">TODO App</h3>
-        <div id="addnew">
-            <span class="fw-bolder">Add New TODO</span>
-            <i class="fa-solid fa-plus"></i>
+      <h3 class="text-center mb-3 fw-bolder">TODO App</h3>
+      <div id="addnew" data-bs-toggle="modal" data-bs-target="#form">
+        <span class="fw-bolder">Add New TODO</span>
+        <i class="fa-solid fa-plus"></i>
+      </div>
+
+      <!-- Modal -->
+      <form
+        class="modal fade"
+        id="form"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Add New Todo
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>Todo Title</p>
+              <input type="text" class="form-control" id="textInput" />
+              <div id="msg"></div>
+              <br />
+              <p>DeadLine</p>
+              <input type="date" class="form-control" id="dateInput" />
+              <br />
+              <p>Task</p>
+              <textarea
+                class="form-control"
+                id="textarea"
+                cols="30"
+                rows="5"
+              ></textarea>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-warning"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-danger">Add</button>
+            </div>
+          </div>
         </div>
-        <h5 class="text-center my-3 fw-bolder">TODO'S</h5>
-         <div id="tasks">
+      </form>
+      <h5 class="text-center my-3 fw-bolder">TODO'S</h5>
+      <div id="tasks">
         <div>
-            <span class="fw-bolder">Task1</span>
-            <span class="small text-secondary">30-11-2023</span>
-            <p>Need to complete Todo app</p>
-            <span class="options">
-                <i class="fa-regular fa-pen-to-square"></i>
-                <i class="fa-regular fa-trash-can"></i>
-            </span>
+          <span class="fw-bolder">Task1</span>
+          <span class="small text-secondary">30-11-2023</span>
+          <p>Need to complete Todo app</p>
+          <span class="options">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <i class="fa-regular fa-trash-can"></i>
+          </span>
         </div>
         <div>
-            <span class="fw-bolder">Task2</span>
-            <span class="small text-secondary">30-11-2023</span>
-            <p>Need to Deploy Todo App</p>
-            <span class="options">
-                <i class="fa-regular fa-pen-to-square"></i>
-                <i class="fa-regular fa-trash-can"></i>
-            </span>
+          <span class="fw-bolder">Task2</span>
+          <span class="small text-secondary">30-11-2023</span>
+          <p>Need to Deploy Todo App</p>
+          <span class="options">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <i class="fa-regular fa-trash-can"></i>
+          </span>
         </div>
+      </div>
     </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script src="script.js"></script>
     <script
