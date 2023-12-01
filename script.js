@@ -50,7 +50,7 @@ const createTodo = () => {
     <p>${data.task}</p>
     <span class="options">
       <i class="fa-regular fa-pen-to-square"></i>
-      <i class="fa-regular fa-trash-can"></i>
+      <i onclick="deleteData(this)" class="fa-regular fa-trash-can"></i>
     </span>
   </div>`;
   resetForm();
@@ -65,3 +65,7 @@ const resetForm = () => {
 }
 
 //!delete the details from  data 
+const deleteData = (e) => {
+  e.parentElement.parentElement.remove();
+}
+
