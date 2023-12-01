@@ -30,28 +30,36 @@ const formValidation = () => {
 };
 
 //!get details from form input and store it in data
-const data = {};
+let data = [{}];
 
 const getData = () => {
-  data["text"] = textInput.value;
-  data["date"] = dateInput.value;
-  data["task"] = textarea.value;
-  //console.log(data);
+  data.push({
+    text: textInput.value,
+    date: dateInput.value,
+    task: textarea.value,
+  });
+
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(data);
   createTodo();
 };
 
 //!create todo function
 
 const createTodo = () => {
-  tasks.innerHTML += `<div>
-    <span class="fw-bolder">${data.text}</span>
-    <span class="small text-secondary">${data.date}</span>
-    <p>${data.task}</p>
+  tasks.innerHTML = "";
+  data.map((ele, y) => {
+    return (tasks.innerHTML += `<div id=${y}>
+    <span class="fw-bolder">${ele.text}</span>
+    <span class="small text-secondary">${ele.date}</span>
+    <p>${ele.task}</p>
     <span class="options">
       <i onclick="editData(this)" data-bs-toggle="modal" data-bs-target="#form" class="fa-regular fa-pen-to-square"></i>
-      <i onclick="deleteData(this)" class="fa-regular fa-trash-can"></i>
+      <i onclick="deleteData(this);createTodo()"class="fa-regular fa-trash-can"></i>
     </span>
-  </div>`;
+  </div>`);
+  });
+
   resetForm();
 };
 
@@ -63,9 +71,18 @@ const resetForm = () => {
   textarea.value = "";
 };
 
+(() => {
+  data = JSON.parse(localStorage.getItem("data")) || [];
+  console.log(data);
+  createTodo();
+})();
+
 //!delete the details from  data
 const deleteData = (e) => {
   e.parentElement.parentElement.remove();
+  data.splice(e.parentElement.parentElement.id, 1);
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(data);
 };
 
 //!edit the details in the data
@@ -75,5 +92,6 @@ const editData = (e) => {
   dateInput.value = task.children[1].innerHTML;
   textarea.value = task.children[2].innerHTML;
 
-  task.remove();
+  //task.remove();
+  deleteData(e);
 };
