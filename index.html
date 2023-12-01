@@ -25,7 +25,7 @@
         <i class="fa-solid fa-plus"></i>
       </div>
       
-      <!-- Modal -->
+      <!-- Modal changed to form -->
       <form
         class="modal fade"
         id="form"
@@ -53,6 +53,7 @@
               <br />
               <p>DeadLine</p>
               <input type="date" class="form-control" id="dateInput" />
+              
               <br />
               <p>Task</p>
               <textarea
@@ -61,6 +62,7 @@
                 cols="30"
                 rows="5"
               ></textarea>
+              
             </div>
             <div class="modal-footer">
               <button
@@ -70,49 +72,15 @@
               >
                 Close
               </button>
-              <button type="button" class="btn btn-danger">Add</button>
+              <button type="submit" id="add" class="btn btn-danger">Add</button>
             </div>
           </div>
         </div>
       </form>
       <h5 class="text-center my-3 fw-bolder">TODO'S</h5>
       <div id="tasks">
-        <div>
-          <span class="fw-bolder">Task1</span>
-          <span class="small text-secondary">30-11-2023</span>
-          <p>Need to complete Todo app</p>
-          <span class="options">
-            <i class="fa-regular fa-pen-to-square"></i>
-            <i class="fa-regular fa-trash-can"></i>
-          </span>
-        </div>
-        <div>
-          <span class="fw-bolder">Task2</span>
-          <span class="small text-secondary">30-11-2023</span>
-          <p>Need to Deploy Todo App</p>
-          <span class="options">
-            <i class="fa-regular fa-pen-to-square"></i>
-            <i class="fa-regular fa-trash-can"></i>
-          </span>
-        </div>
-        <div>
-            <span class="fw-bolder">Task2</span>
-            <span class="small text-secondary">30-11-2023</span>
-            <p>Need to Deploy Todo App</p>
-            <span class="options">
-              <i class="fa-regular fa-pen-to-square"></i>
-              <i class="fa-regular fa-trash-can"></i>
-            </span>
-          </div>
-          <div>
-            <span class="fw-bolder">Task2</span>
-            <span class="small text-secondary">30-11-2023</span>
-            <p>Need to Deploy Todo App</p>
-            <span class="options">
-              <i class="fa-regular fa-pen-to-square"></i>
-              <i class="fa-regular fa-trash-can"></i>
-            </span>
-          </div>
+        
+        
       </div>
     </div>
 
