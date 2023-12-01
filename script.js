@@ -10,7 +10,6 @@ const add = document.getElementById("add");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   formValidation();
-  
 });
 
 //!form-validation function
@@ -22,11 +21,11 @@ const formValidation = () => {
     msg.innerHTML = "";
     //console.log("data found");
     getData();
-    add.setAttribute("data-bs-dismiss","modal")
+    add.setAttribute("data-bs-dismiss", "modal");
     add.click();
-    (()=>{
-        add.setAttribute("data-bs-dismiss","")
-    })()
+    (() => {
+      add.setAttribute("data-bs-dismiss", "");
+    })();
   }
 };
 
@@ -49,7 +48,7 @@ const createTodo = () => {
     <span class="small text-secondary">${data.date}</span>
     <p>${data.task}</p>
     <span class="options">
-      <i class="fa-regular fa-pen-to-square"></i>
+      <i onclick="editData(this)" data-bs-toggle="modal" data-bs-target="#form" class="fa-regular fa-pen-to-square"></i>
       <i onclick="deleteData(this)" class="fa-regular fa-trash-can"></i>
     </span>
   </div>`;
@@ -59,13 +58,22 @@ const createTodo = () => {
 //!reset form to clear the data
 
 const resetForm = () => {
-    textInput.value="" ;
-    dateInput.value="";
-    textarea.value = "";
-}
+  textInput.value = "";
+  dateInput.value = "";
+  textarea.value = "";
+};
 
-//!delete the details from  data 
+//!delete the details from  data
 const deleteData = (e) => {
   e.parentElement.parentElement.remove();
-}
+};
 
+//!edit the details in the data
+const editData = (e) => {
+  let task = e.parentElement.parentElement;
+  textInput.value = task.children[0].innerHTML;
+  dateInput.value = task.children[1].innerHTML;
+  textarea.value = task.children[2].innerHTML;
+
+  task.remove();
+};
